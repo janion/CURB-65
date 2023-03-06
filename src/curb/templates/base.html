@@ -1,0 +1,12 @@
+{%- extends "bootstrap/base.html" %}
+
+{% block title %}CURB-65 Calculator{% endblock %}
+{% import "bootstrap/fixes.html" as fixes %}
+
+{# Apply IE fixes in header #}
+{% block head %}
+    {{super()}}
+
+    {#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes #}
+    {{fixes.ie8()}}
+{%- endblock %}

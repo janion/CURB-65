@@ -1,0 +1,14 @@
+{%- extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>CURB-65 Score for Patient {{ id }}:</h1>
+            <p><strong>{{ score }}</strong></p>
+            <p>Recommendation: {{ recc }}</p>
+        </div>
+    </div>
+    <div class="container">
+        <a href="/">Home</a>
+    </div>
+{%- endblock %}

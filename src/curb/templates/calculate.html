@@ -1,0 +1,41 @@
+{%- extends "base.html" %}
+
+{% block head %}
+    {{super()}}
+
+    <script>
+        function validateId() {
+            var id = document.forms["calculate"]["id"].value;
+            if (id.match("P[0-9]{6}") == null) {
+                alert("Patient ID must follow pattern \"P******\"");
+                return false;
+            }
+        }
+    </script>
+{%- endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Calculate score</h1>
+        </div>
+        <h2>Enter the patient's details:</h2>
+        <form name="calculate" action="/result" method="post" onsubmit="return validateId()">
+            Patient ID:<br>
+            <input type="text" name="id" required><br>
+            Date of Birth:<br>
+            <input type="date" name="dob" required><br>
+            Confusion:<br>
+            <input type="checkbox" name="confusion"><br>
+            Blood Urea:<br>
+            <input type="number" name="urea" required><br>
+            Respiratory Rate:<br>
+            <input type="number" name="resp_rate" required><br>
+            Systolic Blood Pressure:<br>
+            <input type="number" name="sbp" required><br>
+            Diastolic Blood Pressure:<br>
+            <input type="number" name="dbp" required><br>
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
+{%- endblock %}
